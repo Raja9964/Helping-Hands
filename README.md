@@ -1,5 +1,3 @@
-# helping-hands
-Donation platform with ID tracking and real-time dashboard
 # Helping Hands
 
 A full-stack donation platform with donor tracking, delivery proof, and email alerts.
