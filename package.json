@@ -1,19 +1,29 @@
 {
-  "name": "donationweb",
+  "name": "givetrack",
   "version": "1.0.0",
-  "main": "server.js",
+  "description": "Donation pickup and tracking platform with a live admin dashboard.",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=22.9"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node --env-file-if-exists=.env src/index.js",
+    "dev": "node --watch --env-file-if-exists=.env src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Raja Mohamad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raja9964/GiveTrack.git"
+  },
   "dependencies": {
-    "express": "^4.19.2",
-    "mongoose": "^8.4.1",
-    "nodemon": "^3.1.3",
-    "path": "^0.12.7"
-  },
-  "description": ""
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "mongoose": "^9.10.4",
+    "zod": "^4.6.5"
+  }
 }
