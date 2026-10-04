@@ -9,7 +9,7 @@ export default [
     languageOptions: { globals: globals.node },
   },
   {
-    files: ['public/js/**/*.js'],
+    files: ['public/js/**/*.js', 'demo/**/*.js'],
     languageOptions: { globals: globals.browser },
   },
   {
