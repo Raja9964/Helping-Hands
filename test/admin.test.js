@@ -9,7 +9,7 @@ const app = testApp();
 // Same format cookie-parser uses for signed cookies.
 function signedCookie(value, secret) {
   const signature = createHmac('sha256', secret).update(value).digest('base64').replace(/=+$/, '');
-  return `gt_admin=${encodeURIComponent(`s:${value}.${signature}`)}`;
+  return `hh_admin=${encodeURIComponent(`s:${value}.${signature}`)}`;
 }
 
 describe('admin authentication', () => {
@@ -21,7 +21,7 @@ describe('admin authentication', () => {
   it('sets a signed, httpOnly, same-site session cookie', async () => {
     const res = await request(app).post('/api/admin/login').send({ password: 'correct-horse-battery' }).expect(204);
     const [cookie] = res.headers['set-cookie'];
-    expect(cookie).toMatch(/^gt_admin=s%3A\d+\./);
+    expect(cookie).toMatch(/^hh_admin=s%3A\d+\./);
     expect(cookie).toContain('HttpOnly');
     expect(cookie).toContain('SameSite=Strict');
     expect(cookie).toContain('Path=/api/admin');
@@ -31,7 +31,7 @@ describe('admin authentication', () => {
     ['get', '/api/admin/donations'],
     ['get', '/api/admin/stats'],
     ['get', '/api/admin/events'],
-    ['patch', '/api/admin/donations/GT-222222/status'],
+    ['patch', '/api/admin/donations/HH-222222/status'],
   ])('protects %s %s', async (method, path) => {
     await request(app)[method](path).expect(401);
   });
@@ -43,7 +43,7 @@ describe('admin authentication', () => {
     await request(app).get('/api/admin/stats').set('Cookie', signedCookie(future, SESSION_SECRET)).expect(200);
     await request(app).get('/api/admin/stats').set('Cookie', signedCookie(future, 'x'.repeat(32))).expect(401);
     await request(app).get('/api/admin/stats').set('Cookie', signedCookie(past, SESSION_SECRET)).expect(401);
-    await request(app).get('/api/admin/stats').set('Cookie', `gt_admin=${future}`).expect(401);
+    await request(app).get('/api/admin/stats').set('Cookie', `hh_admin=${future}`).expect(401);
   });
 
   it('ends the session on logout', async () => {
@@ -130,6 +130,6 @@ describe('status updates', () => {
 
     await agent.patch(`/api/admin/donations/${code}/status`).send({ status: 'received' }).expect(400);
     await agent.patch(`/api/admin/donations/${code}/status`).send({ status: 'lost' }).expect(400);
-    await agent.patch('/api/admin/donations/GT-ZZZZZZ/status').send({ status: 'scheduled' }).expect(404);
+    await agent.patch('/api/admin/donations/HH-ZZZZZZ/status').send({ status: 'scheduled' }).expect(404);
   });
 });

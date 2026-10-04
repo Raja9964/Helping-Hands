@@ -14,7 +14,7 @@ describe('POST /api/donations', () => {
       .send(donationInput({ name: '  Priya Sharma  ' }))
       .expect(201);
 
-    expect(res.body).toEqual({ code: expect.stringMatching(/^GT-[A-Z2-9]{6}$/), firstName: 'Priya' });
+    expect(res.body).toEqual({ code: expect.stringMatching(/^HH-[A-Z2-9]{6}$/), firstName: 'Priya' });
     expect(res.headers.location).toBe(`/api/donations/${res.body.code}`);
 
     const saved = await Donation.findOne({ code: res.body.code }).lean();
@@ -57,9 +57,9 @@ describe('POST /api/donations', () => {
   });
 
   it('ignores fields the client should not control', async () => {
-    const code = await createDonationViaApi(app, { status: 'delivered', code: 'GT-222222', timeline: [] });
+    const code = await createDonationViaApi(app, { status: 'delivered', code: 'HH-222222', timeline: [] });
     const saved = await Donation.findOne({ code }).lean();
-    expect(code).not.toBe('GT-222222');
+    expect(code).not.toBe('HH-222222');
     expect(saved.status).toBe('received');
     expect(saved.timeline).toHaveLength(1);
   });
@@ -84,11 +84,11 @@ describe('POST /api/donations', () => {
 
 describe('createDonation', () => {
   it('rolls a new code when the first one is already taken', async () => {
-    await createDonation(donationInput(), { generateCode: () => 'GT-AAAAAA' });
-    const codes = ['GT-AAAAAA', 'GT-BBBBBB'];
+    await createDonation(donationInput(), { generateCode: () => 'HH-AAAAAA' });
+    const codes = ['HH-AAAAAA', 'HH-BBBBBB'];
 
     const donation = await createDonation(donationInput(), { generateCode: () => codes.shift() });
 
-    expect(donation.code).toBe('GT-BBBBBB');
+    expect(donation.code).toBe('HH-BBBBBB');
   });
 });

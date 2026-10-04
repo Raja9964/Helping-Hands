@@ -12,6 +12,6 @@ try {
     });
   }
 } catch (err) {
-  console.error(`GiveTrack failed to start: ${err.message}`);
+  console.error(`Helping Hands failed to start: ${err.message}`);
   process.exit(1);
 }

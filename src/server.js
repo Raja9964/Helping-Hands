@@ -16,7 +16,7 @@ export async function startServer(config, { logger = console } = {}) {
   await once(server, 'listening');
 
   const { port } = server.address();
-  logger.info(`GiveTrack running at http://localhost:${port}`);
+  logger.info(`Helping Hands running at http://localhost:${port}`);
 
   let closing;
   const close = () => {

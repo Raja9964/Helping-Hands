@@ -1,6 +1,6 @@
 import { api } from './api.js';
 
-const CODE_PATTERN = /^GT-[2-9A-HJKMNP-TV-Z]{6}$/;
+const CODE_PATTERN = /^HH-[2-9A-HJKMNP-TV-Z]{6}$/;
 const code = new URLSearchParams(window.location.search).get('code')?.toUpperCase();
 
 if (code && CODE_PATTERN.test(code)) {

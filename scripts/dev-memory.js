@@ -1,4 +1,4 @@
-// Runs GiveTrack against a throwaway in-memory MongoDB with demo data,
+// Runs Helping Hands against a throwaway in-memory MongoDB with demo data,
 // so the app can be tried without installing MongoDB.
 import { randomBytes } from 'node:crypto';
 import { MongoMemoryServer } from 'mongodb-memory-server';
@@ -6,14 +6,14 @@ import { loadConfig } from '../src/config.js';
 import { startServer } from '../src/server.js';
 import { DEMO_TRACKING_CODE, seedDemoData } from './demo-data.js';
 
-const DEMO_PASSWORD = 'givetrack-demo';
+const DEMO_PASSWORD = 'helpinghands-demo';
 
 const mongo = await MongoMemoryServer.create();
 
 try {
   const config = loadConfig({
     ...process.env,
-    MONGODB_URI: mongo.getUri('givetrack'),
+    MONGODB_URI: mongo.getUri('helpinghands'),
     ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || DEMO_PASSWORD,
     SESSION_SECRET: process.env.SESSION_SECRET || randomBytes(32).toString('hex'),
   });

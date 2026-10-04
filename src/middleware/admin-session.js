@@ -1,7 +1,7 @@
 import { createHash, timingSafeEqual } from 'node:crypto';
 import { HttpError } from '../lib/http-error.js';
 
-const COOKIE_NAME = 'gt_admin';
+const COOKIE_NAME = 'hh_admin';
 const COOKIE_PATH = '/api/admin';
 export const SESSION_TTL_MS = 8 * 60 * 60 * 1000;
 

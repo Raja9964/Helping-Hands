@@ -1,8 +1,8 @@
-# GiveTrack
+# Helping Hands
 
 Doorstep donation pickup with a tracking code for every gift, and a live dashboard for the team that collects them.
 
-[![CI](https://github.com/Raja9964/GiveTrack/actions/workflows/ci.yml/badge.svg)](https://github.com/Raja9964/GiveTrack/actions/workflows/ci.yml)
+[![CI](https://github.com/Raja9964/Helping-Hands/actions/workflows/ci.yml/badge.svg)](https://github.com/Raja9964/Helping-Hands/actions/workflows/ci.yml)
 
 | Landing page | Thank-you page with code |
 | --- | --- |
@@ -13,7 +13,7 @@ Doorstep donation pickup with a tracking code for every gift, and a live dashboa
 ## Features
 
 - **Donation form** with server-side validation (trimmed input, length limits, Indian mobile numbers, fixed category list). Errors show inline next to each field.
-- **Donation codes** like `GT-7K3P9Q`, built from an alphabet without look-alike characters (no `0/O`, `1/I/L`) so they are easy to read out over the phone.
+- **Donation codes** like `HH-7K3P9Q`, built from an alphabet without look-alike characters (no `0/O`, `1/I/L`) so they are easy to read out over the phone.
 - **Public tracking page**: a status timeline (Received, Scheduled for pickup, Collected, Delivered) with timestamps. It shows only the donor's first name and the category, never the phone number or address.
 - **Admin dashboard** behind a password: filter and search donations, move them to the next status, and see counts by status and category.
 - **Live updates**: the dashboard listens on a Server-Sent Events stream, so new donations and status changes appear without a reload.
@@ -98,8 +98,8 @@ Requires Node.js 22.9 or newer.
 ### Quick demo (no MongoDB needed)
 
 ```bash
-git clone https://github.com/Raja9964/GiveTrack.git
-cd GiveTrack
+git clone https://github.com/Raja9964/Helping-Hands.git
+cd Helping-Hands
 npm install
 npm run dev:memory
 ```
@@ -107,8 +107,8 @@ npm run dev:memory
 Then open:
 
 - http://localhost:3000 for the site
-- http://localhost:3000/track?code=GT-7K3P9Q for a seeded donation
-- http://localhost:3000/admin with the password `givetrack-demo`
+- http://localhost:3000/track?code=HH-7K3P9Q for a seeded donation
+- http://localhost:3000/admin with the password `helpinghands-demo`
 
 The in-memory database is wiped when the process stops. Set `PORT` to use another port.
 
@@ -125,7 +125,7 @@ The server connects to MongoDB first (retrying a few times) and only starts list
 
 | Variable | Required | Default | Description |
 | --- | --- | --- | --- |
-| `MONGODB_URI` | no | `mongodb://127.0.0.1:27017/givetrack` | MongoDB connection string |
+| `MONGODB_URI` | no | `mongodb://127.0.0.1:27017/helpinghands` | MongoDB connection string |
 | `PORT` | no | `3000` | HTTP port |
 | `ADMIN_PASSWORD` | yes | none | Password for `/admin`, at least 8 characters |
 | `SESSION_SECRET` | yes | none | Key for signing the admin cookie, at least 32 characters |
@@ -139,7 +139,7 @@ The server connects to MongoDB first (retrying a few times) and only starts list
 | Method | Path | Auth | Description |
 | --- | --- | --- | --- |
 | `POST` | `/api/donations` | none | Create a donation. Body: `name`, `phone`, `category`, `address`, optional `notes`. Returns `201` with `{ code, firstName }` |
-| `GET` | `/api/donations/:code` | none | Public status timeline. Accepts `gt-7k3p9q`, `GT7K3P9Q` or `7K3P9Q` |
+| `GET` | `/api/donations/:code` | none | Public status timeline. Accepts `hh-7k3p9q`, `HH7K3P9Q` or `7K3P9Q` |
 | `POST` | `/api/admin/login` | none | Body `{ password }`. Sets the session cookie and returns `204` |
 | `POST` | `/api/admin/logout` | none | Clears the session cookie |
 | `GET` | `/api/admin/session` | none | `{ authenticated: boolean }` |

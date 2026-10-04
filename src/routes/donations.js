@@ -33,7 +33,7 @@ export function donationsRouter({ config, events }) {
 
   router.get('/:code', trackLimit, async (req, res) => {
     const code = normalizeDonationCode(req.params.code);
-    if (!code) throw new HttpError(400, 'Donation codes look like GT-7K3P9Q');
+    if (!code) throw new HttpError(400, 'Donation codes look like HH-7K3P9Q');
 
     const donation = await findDonationByCode(code);
     if (!donation) throw new HttpError(404, 'We could not find a donation with that code');

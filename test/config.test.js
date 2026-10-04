@@ -7,7 +7,7 @@ describe('loadConfig', () => {
   it('applies defaults and treats empty values as unset', () => {
     const config = loadConfig({ ...secrets, PORT: '' });
     expect(config.port).toBe(3000);
-    expect(config.mongodbUri).toBe('mongodb://127.0.0.1:27017/givetrack');
+    expect(config.mongodbUri).toBe('mongodb://127.0.0.1:27017/helpinghands');
     expect(config.isProduction).toBe(false);
   });
 

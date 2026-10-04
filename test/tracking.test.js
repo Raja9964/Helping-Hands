@@ -40,8 +40,8 @@ describe('GET /api/donations/:code', () => {
   });
 
   it('returns 404 for an unknown code and 400 for a malformed one', async () => {
-    await request(app).get('/api/donations/GT-ZZZZZZ').expect(404);
+    await request(app).get('/api/donations/HH-ZZZZZZ').expect(404);
     const res = await request(app).get('/api/donations/hello').expect(400);
-    expect(res.body.error).toMatch(/GT-/);
+    expect(res.body.error).toMatch(/HH-/);
   });
 });

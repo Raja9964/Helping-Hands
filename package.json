@@ -1,5 +1,5 @@
 {
-  "name": "givetrack",
+  "name": "helping-hands",
   "version": "1.0.0",
   "description": "Donation pickup and tracking platform with a live admin dashboard.",
   "private": true,
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Raja9964/GiveTrack.git"
+    "url": "git+https://github.com/Raja9964/Helping-Hands.git"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
