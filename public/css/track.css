@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0 16px;
+  background-color: #f4f4f4;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 520px;
+  margin: 30px auto 50px;
+  text-align: center;
+  background: #fff;
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2.1em;
+  margin: 0 0 16px;
+  color: #333;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input[type='text'] {
+  flex: 1 1 220px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+button {
+  flex: 0 0 auto;
+  padding: 12px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: #3d8b40;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+#tracking-info {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fafafa;
+}
+
+#tracking-info h2 {
+  margin: 0 0 6px;
+  font-size: 1.4em;
+}
+
+#tracking-info .summary {
+  margin-bottom: 0;
+}
+
+#tracking-info.error h2 {
+  color: #b3261e;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  max-width: 320px;
+  margin: 20px auto 0;
+  text-align: left;
+}
+
+.timeline::before {
+  content: '';
+  background: #d4d9df;
+  position: absolute;
+  left: 20px;
+  width: 2px;
+  height: 100%;
+}
+
+.timeline li {
+  margin: 20px 0;
+  padding-left: 50px;
+  position: relative;
+}
+
+.timeline li::before {
+  content: '';
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #bbb;
+  left: 11px;
+  width: 20px;
+  height: 20px;
+}
+
+.timeline li.complete::before {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+.timeline li.current::before {
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.25);
+}
+
+.timeline h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #888;
+}
+
+.timeline li.complete h3 {
+  color: #2e7d32;
+}
+
+.timeline p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #666;
+}
