@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 import { CATEGORY_KEYS, STATUS_FLOW } from './domain.js';
 
 // Optional +91 / 91 / 0 prefix, then a 10-digit mobile number starting with 6-9.
