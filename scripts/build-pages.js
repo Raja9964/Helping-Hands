@@ -8,6 +8,9 @@ import { build } from 'esbuild';
 const root = path.resolve(import.meta.dirname, '..');
 const outDir = path.resolve(process.argv[2] ?? path.join(root, 'dist'));
 const basePath = (process.env.BASE_PATH ?? '/Helping-Hands').replace(/\/+$/, '');
+if (basePath && !basePath.startsWith('/')) {
+  throw new Error(`BASE_PATH should look like /Helping-Hands, got "${basePath}"`);
+}
 
 // GitHub Pages maps /track to track.html but plain static servers don't, so link to the files.
 const PAGES = ['thank-you', 'track', 'admin'];
