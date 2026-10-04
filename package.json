@@ -14,8 +14,10 @@
     "dev:memory": "node --env-file-if-exists=.env scripts/dev-memory.js",
     "test": "vitest run",
     "lint": "eslint .",
+    "build:pages": "node scripts/build-pages.js",
     "images:optimize": "node scripts/optimize-images.js"
   },
+  "homepage": "https://raja9964.github.io/Helping-Hands/",
   "author": "Raja Mohamad",
   "license": "MIT",
   "repository": {
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "esbuild": "^0.28.2",
     "eslint": "^10.12.0",
     "globals": "^17.13.0",
     "mongodb-memory-server": "^11.3.0",

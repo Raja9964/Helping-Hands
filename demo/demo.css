@@ -1,0 +1,141 @@
+/* Only in the GitHub Pages build. */
+:root {
+  --hh-demo-banner-height: 0px;
+}
+
+body {
+  padding-bottom: var(--hh-demo-banner-height);
+}
+
+.hh-demo-banner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px 20px;
+  padding: 8px 16px;
+  background: rgba(12, 12, 12, 0.94);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.18);
+  color: #e6e6e6;
+  font: 13px/1.5 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
+}
+
+.hh-demo-banner .hh-demo-text {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.hh-demo-banner strong {
+  color: #4be051;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hh-demo-banner strong::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: 0 7px 1px 0;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 3px rgba(75, 224, 81, 0.25);
+}
+
+.hh-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 16px;
+}
+
+.hh-demo-actions a,
+.hh-demo-actions button {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.hh-demo-actions a:hover,
+.hh-demo-actions a:focus-visible,
+.hh-demo-actions button:hover,
+.hh-demo-actions button:focus-visible {
+  background: none;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 576px) {
+  .hh-demo-banner {
+    padding: 6px 12px 7px;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+}
+
+.hh-demo-hint {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px 10px;
+  margin: -4px 0 18px;
+  padding: 10px 12px;
+  background: #eef7f0;
+  border: 1px solid #cfe7d4;
+  border-radius: 8px;
+  color: #1d4d24;
+  font-size: 0.88rem;
+}
+
+.hh-demo-hint .hh-demo-label {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #3f6d45;
+}
+
+.hh-demo-hint code {
+  justify-self: start;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #fff;
+  color: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.hh-demo-hint button {
+  padding: 3px 12px;
+  border: 1px solid #2e7d32;
+  border-radius: 6px;
+  background: #fff;
+  color: #2e7d32;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.hh-demo-hint button:hover,
+.hh-demo-hint button:focus-visible {
+  background: #2e7d32;
+  color: #fff;
+}
