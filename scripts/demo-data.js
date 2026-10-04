@@ -1,7 +1,8 @@
+// Plain data with no database imports, so the browser demo can use it too.
 import { STATUS_FLOW } from '../src/domain.js';
-import { Donation } from '../src/models/donation.js';
 
 export const DEMO_TRACKING_CODE = 'HH-7K3P9Q';
+export const DEMO_ADMIN_PASSWORD = 'helpinghands-demo';
 
 const HOUR = 60 * 60 * 1000;
 // Hours between consecutive steps: received -> scheduled -> collected -> delivered.
@@ -23,8 +24,8 @@ const DEMO_DONATIONS = [
   ['HH-5NJW7K', 'Rohan Das', '+919036123456', 'clothes', '77, Electronic City Phase 1, Bengaluru 560100', 'Formal shirts and trousers', 'received', 12],
 ];
 
-export async function seedDemoData(now = Date.now()) {
-  const docs = DEMO_DONATIONS.map(([code, name, phone, category, address, notes, status, hoursAgo]) => {
+export function demoDonations(now = Date.now()) {
+  return DEMO_DONATIONS.map(([code, name, phone, category, address, notes, status, hoursAgo]) => {
     const createdAt = new Date(now - hoursAgo * HOUR);
     const steps = STATUS_FLOW.slice(0, STATUS_FLOW.indexOf(status) + 1);
 
@@ -36,7 +37,4 @@ export async function seedDemoData(now = Date.now()) {
 
     return { code, name, phone, category, address, notes, status, timeline, createdAt, updatedAt: timeline.at(-1).at };
   });
-
-  await Donation.insertMany(docs, { timestamps: false });
-  return docs.length;
 }

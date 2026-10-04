@@ -3,10 +3,9 @@
 import { randomBytes } from 'node:crypto';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import { loadConfig } from '../src/config.js';
+import { Donation } from '../src/models/donation.js';
 import { startServer } from '../src/server.js';
-import { DEMO_TRACKING_CODE, seedDemoData } from './demo-data.js';
-
-const DEMO_PASSWORD = 'helpinghands-demo';
+import { DEMO_ADMIN_PASSWORD, DEMO_TRACKING_CODE, demoDonations } from './demo-data.js';
 
 const mongo = await MongoMemoryServer.create();
 
@@ -14,17 +13,17 @@ try {
   const config = loadConfig({
     ...process.env,
     MONGODB_URI: mongo.getUri('helpinghands'),
-    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || DEMO_PASSWORD,
+    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || DEMO_ADMIN_PASSWORD,
     SESSION_SECRET: process.env.SESSION_SECRET || randomBytes(32).toString('hex'),
   });
 
   const app = await startServer(config);
-  const seeded = await seedDemoData();
+  const seeded = await Donation.insertMany(demoDonations(), { timestamps: false });
   const url = `http://localhost:${app.port}`;
-  const password = process.env.ADMIN_PASSWORD ? '(value of ADMIN_PASSWORD)' : DEMO_PASSWORD;
+  const password = process.env.ADMIN_PASSWORD ? '(value of ADMIN_PASSWORD)' : DEMO_ADMIN_PASSWORD;
 
   console.info(`
-In-memory MongoDB ready with ${seeded} demo donations. Data is lost on exit.
+In-memory MongoDB ready with ${seeded.length} demo donations. Data is lost on exit.
   Site      ${url}
   Track     ${url}/track?code=${DEMO_TRACKING_CODE}
   Admin     ${url}/admin   password: ${password}
