@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import express from 'express';
 import helmet from 'helmet';
 import { apiNotFound, errorHandler } from './middleware/errors.js';
+import { donationsRouter } from './routes/donations.js';
 
 const publicDir = fileURLToPath(new URL('../public', import.meta.url));
 
@@ -38,6 +39,7 @@ export function createApp({ config, logger = console }) {
 
   if (config.env !== 'test') app.use('/api', requestLogger(logger));
   app.use('/api', express.json({ limit: '10kb' }));
+  app.use('/api/donations', donationsRouter({ config }));
   app.use('/api', apiNotFound);
 
   app.use((req, res) => {

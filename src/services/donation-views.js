@@ -1,0 +1,26 @@
+import { CATEGORIES, STATUSES, STATUS_FLOW } from '../domain.js';
+
+// Everything served by the public tracking endpoint goes through this
+// allow-list, so new fields on the model are private by default.
+export function toPublicView(donation) {
+  const reachedAt = new Map(donation.timeline.map((entry) => [entry.status, entry.at]));
+
+  return {
+    code: donation.code,
+    firstName: firstNameOf(donation.name),
+    category: donation.category,
+    categoryLabel: CATEGORIES[donation.category],
+    status: donation.status,
+    statusLabel: STATUSES[donation.status],
+    createdAt: donation.createdAt,
+    timeline: STATUS_FLOW.map((status) => ({
+      status,
+      label: STATUSES[status],
+      at: reachedAt.get(status) ?? null,
+    })),
+  };
+}
+
+export function firstNameOf(name) {
+  return name.trim().split(/\s+/)[0];
+}
