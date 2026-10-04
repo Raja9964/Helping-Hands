@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Admin dashboard | GiveTrack</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script type="module" src="js/admin.js"></script>
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a class="brand" href="/">GiveTrack <span>admin</span></a>
+      <div class="d-flex align-items-center">
+        <span id="live-status" class="live-status" hidden>Connecting...</span>
+        <button type="button" id="logout" class="btn btn-sm btn-outline-light ml-3" hidden>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="login-view" class="login-card" hidden>
+      <h1>Admin login</h1>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" autocomplete="current-password" required>
+        </div>
+        <p id="login-error" class="text-danger small" role="alert"></p>
+        <button type="submit" class="btn btn-dark btn-block">Log in</button>
+      </form>
+    </section>
+
+    <section id="dashboard-view" class="container-fluid" hidden>
+      <div class="stat-grid" id="status-stats"></div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="h6 text-muted mb-3">Donations by category</h2>
+          <div class="category-stats" id="category-stats"></div>
+        </div>
+      </div>
+
+      <form id="filters" class="form-row align-items-end mb-3">
+        <div class="col-sm-3 mb-2">
+          <label for="filter-status" class="small text-muted">Status</label>
+          <select id="filter-status" name="status" class="form-control form-control-sm">
+            <option value="">All statuses</option>
+            <option value="received">Received</option>
+            <option value="scheduled">Scheduled for pickup</option>
+            <option value="collected">Collected</option>
+            <option value="delivered">Delivered</option>
+          </select>
+        </div>
+        <div class="col-sm-3 mb-2">
+          <label for="filter-category" class="small text-muted">Category</label>
+          <select id="filter-category" name="category" class="form-control form-control-sm">
+            <option value="">All categories</option>
+            <option value="clothes">Clothes</option>
+            <option value="footwear">Footwear</option>
+            <option value="funds">Funds</option>
+            <option value="gadgets">Gadgets</option>
+            <option value="stationery">Stationery</option>
+            <option value="food">Food</option>
+          </select>
+        </div>
+        <div class="col-sm-4 mb-2">
+          <label for="filter-q" class="small text-muted">Search</label>
+          <input type="search" id="filter-q" name="q" class="form-control form-control-sm" placeholder="Code or donor name">
+        </div>
+        <div class="col-sm-2 mb-2 text-sm-right">
+          <span class="small text-muted" id="result-count"></span>
+        </div>
+      </form>
+
+      <p id="dashboard-error" class="alert alert-danger" role="alert" hidden></p>
+
+      <div class="table-responsive card">
+        <table class="table table-hover mb-0">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">Donor</th>
+              <th scope="col">Category</th>
+              <th scope="col">Pickup address</th>
+              <th scope="col">Received</th>
+              <th scope="col">Status</th>
+              <th scope="col" class="text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="donation-rows"></tbody>
+        </table>
+      </div>
+      <div class="d-flex justify-content-center align-items-center my-3" id="pager">
+        <button type="button" class="btn btn-sm btn-outline-dark" id="prev-page">Previous</button>
+        <span class="mx-3 small" id="page-label"></span>
+        <button type="button" class="btn btn-sm btn-outline-dark" id="next-page">Next</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
