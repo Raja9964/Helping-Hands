@@ -23,6 +23,22 @@ body {
   font-weight: 400;
 }
 
+.admin-header .container-fluid {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+.admin-header .brand,
+#logout {
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .admin-header .brand {
+    font-size: 1.05rem;
+  }
+}
+
 .live-status {
   font-size: 0.85rem;
   color: #ccc;
