@@ -2,6 +2,7 @@ import http from 'node:http';
 import { once } from 'node:events';
 import { createApp } from './app.js';
 import { connectToDatabase, disconnectFromDatabase } from './db.js';
+import { createEventHub } from './lib/event-hub.js';
 import { Donation } from './models/donation.js';
 
 export async function startServer(config, { logger = console } = {}) {
@@ -9,7 +10,8 @@ export async function startServer(config, { logger = console } = {}) {
   // Build indexes up front: the unique index on `code` is what catches collisions.
   await Donation.init();
 
-  const server = http.createServer(createApp({ config, logger }));
+  const events = createEventHub();
+  const server = http.createServer(createApp({ config, events, logger }));
   server.listen(config.port);
   await once(server, 'listening');
 
@@ -19,6 +21,7 @@ export async function startServer(config, { logger = console } = {}) {
   let closing;
   const close = () => {
     closing ??= (async () => {
+      events.close();
       await new Promise((resolve) => server.close(resolve));
       await disconnectFromDatabase();
     })();

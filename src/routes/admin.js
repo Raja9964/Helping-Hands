@@ -13,8 +13,9 @@ import { parseOrThrow, validateBody } from '../middleware/validate.js';
 import { toAdminView } from '../services/donation-views.js';
 import { advanceStatus, getStats, listDonations } from '../services/donations.js';
 import { listQuerySchema, loginSchema, statusUpdateSchema } from '../validation.js';
+import { liveEvents } from './live-events.js';
 
-export function adminRouter({ config }) {
+export function adminRouter({ config, events }) {
   const router = Router();
   router.use((req, res, next) => {
     res.set('Cache-Control', 'no-store');
@@ -59,12 +60,16 @@ export function adminRouter({ config }) {
     const code = normalizeDonationCode(req.params.code);
     if (!code) throw new HttpError(404, 'Donation not found');
 
-    res.json(toAdminView(await advanceStatus(code, req.body.status)));
+    const donation = toAdminView(await advanceStatus(code, req.body.status));
+    events.publish('donation.updated', donation);
+    res.json(donation);
   });
 
   router.get('/stats', async (req, res) => {
     res.json(await getStats());
   });
+
+  router.get('/events', liveEvents(events));
 
   return router;
 }

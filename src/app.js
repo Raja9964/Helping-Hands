@@ -3,13 +3,14 @@ import { fileURLToPath } from 'node:url';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import helmet from 'helmet';
+import { createEventHub } from './lib/event-hub.js';
 import { apiNotFound, errorHandler } from './middleware/errors.js';
 import { adminRouter } from './routes/admin.js';
 import { donationsRouter } from './routes/donations.js';
 
 const publicDir = fileURLToPath(new URL('../public', import.meta.url));
 
-export function createApp({ config, logger = console }) {
+export function createApp({ config, events = createEventHub(), logger = console }) {
   const app = express();
 
   app.disable('x-powered-by');
@@ -41,8 +42,8 @@ export function createApp({ config, logger = console }) {
 
   if (config.env !== 'test') app.use('/api', requestLogger(logger));
   app.use('/api', express.json({ limit: '10kb' }), cookieParser(config.sessionSecret));
-  app.use('/api/donations', donationsRouter({ config }));
-  app.use('/api/admin', adminRouter({ config }));
+  app.use('/api/donations', donationsRouter({ config, events }));
+  app.use('/api/admin', adminRouter({ config, events }));
   app.use('/api', apiNotFound);
 
   app.use((req, res) => {

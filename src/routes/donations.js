@@ -3,11 +3,11 @@ import { normalizeDonationCode } from '../lib/donation-code.js';
 import { HttpError } from '../lib/http-error.js';
 import { rateLimiter } from '../middleware/rate-limit.js';
 import { validateBody } from '../middleware/validate.js';
-import { firstNameOf, toPublicView } from '../services/donation-views.js';
+import { firstNameOf, toAdminView, toPublicView } from '../services/donation-views.js';
 import { createDonation, findDonationByCode } from '../services/donations.js';
 import { createDonationSchema } from '../validation.js';
 
-export function donationsRouter({ config }) {
+export function donationsRouter({ config, events }) {
   const router = Router();
 
   const createLimit = rateLimiter({
@@ -23,6 +23,7 @@ export function donationsRouter({ config }) {
 
   router.post('/', createLimit, validateBody(createDonationSchema), async (req, res) => {
     const donation = await createDonation(req.body);
+    events.publish('donation.created', toAdminView(donation));
 
     res
       .status(201)
