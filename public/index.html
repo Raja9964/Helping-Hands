@@ -1,309 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelpingHands</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.n
-    et/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GiveTrack picks up donated clothes, food, books and more from your doorstep, and lets you track every donation until it is delivered.">
+  <title>GiveTrack | Donate and track every pickup</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script type="module" src="js/home.js"></script>
 </head>
 
 <body>
-    <div class="fixed-top">
+  <div class="fixed-top">
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#home">GiveTrack</a>
+          <button class="navbar-toggler" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <header>
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-dark">
-                    <a class="navbar-brand" href="#home">HelpingHands</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+          <div class="collapse navbar-collapse" id="main-nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#donation">Donations</a></li>
+              <li class="nav-item"><a class="nav-link" href="#mission">Missions</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#donate">Donate</a></li>
+              <li class="nav-item"><a class="nav-link" href="/track">Track</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#home">Home </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#donation">Donations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#mission-id">Missions</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </header>
-
-        <div class="cont-sec">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p>Contact No : <a href="tel: +91 9353542289">+91 9353542289</a></p>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="social">
-                            <a href="https://facebook.com"><img src="img/icons/facebook.png" alt="facebook"></a>
-                            <a href="https://www.instagram.com/donationboxofficial/?igsh=dXVwc25sYWduZzVu"><img src="img/icons/instagram.png" alt="inatagram"></a>
-                            <a href="https://youtu.be/MYoqUGdZMfI"><img src="img/icons/youtube.png" alt="youtube"></a>
-                            <a href="https://linkedin.com"><img src="img/icons/linkedin.png" alt="linkedin"></a>
-                            <a href="https://gmail.com"><img src="img/icons/gmail.png" alt="gnail"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="cont-sec">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <p><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free doorstep pickup for every donation</p>
+          </div>
+          <div class="col-lg-6">
+            <p class="track-link"><a href="/track">Already donated? Track it <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
+          </div>
         </div>
-
+      </div>
     </div>
+  </div>
+
+  <main>
     <section class="home-sec" id="home">
-        <div class="container">
-            <div class="home-content">
-                <div class="row">
-                    <div class="col-lg-30 align-item-center">
-                        <div class="home-info">
-                            
-                            <h1>Alone we can do little, together we can do so much</h1>
-                            <h2>We <span>HelpingHands</span> donate for needy people.</h2>
-                            <p>Remember that the happiest people are not those getting more, but those giving more</p>
-                            <div class="buttons">
-                                <a href="#contact" class="btn1">Donate now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="home-content">
+          <h1>Alone we can do little, together we can do so much</h1>
+          <h2>With <span>GiveTrack</span>, every donation reaches someone in need.</h2>
+          <p>The happiest people are not those getting more, but those giving more.</p>
+          <a href="#donate" class="btn1">Donate now</a>
         </div>
+      </div>
     </section>
 
     <section class="don-sec" id="donation">
-        <div class="container">
-            <div class="heading">
-                <h2>We Manage Donation like..</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="don-box">
-                        <img src="img/don/clothing.png" alt="img">
-                        <h3>Clothes</h3>
-                        <p> "Warmth shared is a shelter provided; donate clothes, spread kindness."</p>
-                        <a href="#contact" class="btn1">Donate Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="don-box">
-                        <img src="img/don/sneakers.png" alt="img">
-                        <h3>Footware</h3>
-                        <p> "With each step, may you walk towards brighter days; donate footwear, pave the way.".</p>
-                        <a href="#contact" class="btn1">Donate Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="don-box">
-                        <img src="img/don/salary.png" alt="img">
-                        <h3>Fund</h3>
-                        <p> "Every coin sown in kindness yields a garden of hope donate funds"</p>
-                        <a href="#contact" class="btn1">Donate Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="don-box">
-                        <img src="img/don/gadgets.png" alt="img">
-                        <h3>Gadgets</h3>
-                        <p>"Empower possibilities with the tools of today; donate gadgets, ignite futures."</p>
-                        <a href="#contact" class="btn1">Donate Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="don-box">
-                        <img src="img/don/book.png" alt="img">
-                        <h3>Stationary</h3>
-                        <p> "In the pages of every donated pencil lies the story of education".</p>
-                        <a href="#contact" class="btn1">Donate Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="don-box">
-                        <img src="img/don/shopping-bag.png" alt="img">
-                        <h3>Food</h3>
-                        <p> "Nourishment shared is a feast for the soul; donate food, nourish hearts."</p>
-                        <a href="#contact" class="btn1">Donate Now</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="heading">
+          <h2>What you can donate</h2>
         </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="don-box">
+              <img src="img/don/clothing.png" alt="" width="70" height="70">
+              <h3>Clothes</h3>
+              <p>Warmth shared is a shelter provided. Donate clothes, spread kindness.</p>
+              <a href="#donate" class="btn1" data-category="clothes">Donate now</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="don-box">
+              <img src="img/don/sneakers.png" alt="" width="70" height="70">
+              <h3>Footwear</h3>
+              <p>With each step, may someone walk towards brighter days. Donate footwear.</p>
+              <a href="#donate" class="btn1" data-category="footwear">Donate now</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="don-box">
+              <img src="img/don/salary.png" alt="" width="70" height="70">
+              <h3>Funds</h3>
+              <p>Every coin given in kindness grows a garden of hope.</p>
+              <a href="#donate" class="btn1" data-category="funds">Donate now</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="don-box">
+              <img src="img/don/gadgets.png" alt="" width="70" height="70">
+              <h3>Gadgets</h3>
+              <p>Empower possibilities with the tools of today. Donate gadgets, ignite futures.</p>
+              <a href="#donate" class="btn1" data-category="gadgets">Donate now</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="don-box">
+              <img src="img/don/book.png" alt="" width="70" height="70">
+              <h3>Stationery</h3>
+              <p>Every donated pencil carries the story of someone's education.</p>
+              <a href="#donate" class="btn1" data-category="stationery">Donate now</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="don-box">
+              <img src="img/don/shopping-bag.png" alt="" width="70" height="70">
+              <h3>Food</h3>
+              <p>Nourishment shared is a feast for the soul. Donate food, nourish hearts.</p>
+              <a href="#donate" class="btn1" data-category="food">Donate now</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="mission" id="mission-id">
-        <div class="container">
-            <div class="heading">
-                <h2>Our Missions</h2>
-                <p>We have delivered <span>Donations</span> to needy Peoples</p>
-            </div>
-            <div class="gallery-sec">
-                <div class="container">
-                    <div class="image-container">
-                        <div class="image"><img src="img/miss/1.jpg" alt="img"></div>
-                        <div class="image"><img src="img/miss/2.jpg" alt="img"></div>
-                        <div class="image"><img src="img/miss/3.jpg" alt="img"></div>
-                        <div class="image"><img src="img/miss/4.jpg" alt="img"></div>
-                        <div class="image"><img src="img/miss/5.jpg" alt="img"></div>
-                        <div class="image"><img src="img/miss/6.jpg" alt="img"></div>
-                    </div>
-                </div>
-                <div class="pop-image">
-                    <span>&times;</span>
-                    <img src="img/gallery/1.jpg" alt="gallery-img">
-                </div>
-                </di v>
-            </div>
+    <section class="mission" id="mission">
+      <div class="container">
+        <div class="heading">
+          <h2>Our Missions</h2>
+          <p>We have delivered <span>donations</span> to people in need.</p>
+        </div>
+        <div class="gallery-sec">
+          <div class="image-container">
+            <button type="button" class="image"><img src="img/miss/1.jpg" alt="Volunteers packing boxes of food and medicine" loading="lazy"></button>
+            <button type="button" class="image"><img src="img/miss/2.jpg" alt="Volunteer carrying a stack of donated blankets" loading="lazy"></button>
+            <button type="button" class="image"><img src="img/miss/3.jpg" alt="Volunteer holding a free food sign beside donated supplies" loading="lazy"></button>
+            <button type="button" class="image"><img src="img/miss/4.jpg" alt="Hot meals being packed into boxes" loading="lazy"></button>
+            <button type="button" class="image"><img src="img/miss/5.jpg" alt="Volunteers handing out drinks and supplies" loading="lazy"></button>
+            <button type="button" class="image"><img src="img/miss/6.jpg" alt="Volunteer handing a drink to a visitor at a donation table" loading="lazy"></button>
+          </div>
+          <div class="pop-image" hidden>
+            <button type="button" class="pop-close" aria-label="Close image">&times;</button>
+            <img src="" alt="">
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="about-sec" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 about-img">
-                    <img src="img/img-2.jpeg" alt="about">
-                </div>
-                <div class="col-lg-8 order-first order-lg-last">
-                    <div class="heading">
-                        <h2>What We Do & Why We Do</h2>
-                    </div>
-                    <p>We connect generous hearts with meaningful causes, facilitating seamless donations to those in need. Our platform serves as a bridge, ensuring that your contributions reach the hands of those who can benefit most, empowering communities and sparking positive change.
-
-                    </p>
-                    <p> We believe in the power of compassion and collective action to transform lives. By leveraging technology, we aim to simplify the process of giving and amplify the impact of every act of kindness. Together, we can build a brighter, more equitable world, where generosity knows no bounds.
-
-
-
-                    </p>
-                </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 about-img">
+            <img src="img/img-2.jpeg" alt="Illustration of a hand dropping a coin into a donation box">
+          </div>
+          <div class="col-lg-8 order-first order-lg-last">
+            <div class="heading">
+              <h2>What We Do &amp; Why We Do It</h2>
             </div>
+            <p>We connect generous hearts with meaningful causes. You tell us what you want to give, we pick it up from your door and make sure it reaches the people who need it most.</p>
+            <p>Every donation gets a tracking code, so you can follow it from pickup to delivery instead of wondering where it went.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-        <!-- Contact Section -->
-        <section class="contact-section" id="contact">
-            <div class="container">
-                <div class="heading">
-                    <h2>Connect With Us</h2>
-                    <p>Fill this form, our team will collect your <span>Donation</span> from your place.</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 mt-5">
-                        <form id="donationForm" class="contact-form" action="/submit" method="POST">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="Name" placeholder="Your Name" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="Mobile" placeholder="Mobile No." required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <select name="donation" class="form-control" required>
-                                                        <option value="">Choose Donation</option>
-                                                        <option value="food">Food</option>
-                                                        <option value="clothes">Clothes</option>
-                                                        <option value="footware">Footware</option>
-                                                        <option value="books">Books</option>
-                                                        <option value="fund">Fund</option>
-                                                        <option value="gadget">Ele. Gadgets</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" name="Address" placeholder="Address" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea class="form-control" name="Message" cols="90" rows="1" placeholder="Message" required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 mt-3">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn1 mt-5">Submit Details</button>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <a href="./thank.html" class="btn1 mt-5">Next</a>
-                                                </div>
-                                            </div>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </form>  
-                    </div>
-                </div>
-            </div>
-        </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-4">
-                    <div class="col-one">
-                        <h4>HelpingHands</h4>
-                        <p>Contact No : <a href="tel: +91 9353542289">+91 9353542289</a></p>
-                        <p>Email : <a href="mailto:foundation@code.com">HelpingHands.com</a></p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="col-two">
-                        <h4>Important Links</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#donation">Donations</a></li>
-                            <li><a href="#mission-id">Missions</a></li>
-                            <li><a href="#about">About us</a></li>
-                            <li><a href="#contact">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="col-one">
-                        <h4>Social Media</h4>
-                        <div class="social">
-                            <a href="https://facebook.com"><img src="img/icons/facebook.png" alt="facebook"></a>
-                            <a href="https://www.instagram.com/donationboxofficial/?igsh=dXVwc25sYWduZzVu"><img src="img/icons/instagram.png" alt="inatagram"></a>
-                            <a href="https://youtu.be/MYoqUGdZMfI"><img src="img/icons/youtube.png" alt="youtube"></a>
-                            <a href="https://linkedin.com"><img src="img/icons/linkedin.png" alt="linkedin"></a>
-                            <a href="https://gmail.com"><img src="img/icons/gmail.png" alt="gnail"></a>
-                        </div>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
+    <section class="contact-section" id="donate">
+      <div class="container">
+        <div class="heading">
+          <h2>Schedule a Pickup</h2>
+          <p>Fill in this form and our team will collect your <span>donation</span> from your place.</p>
         </div>
-    </footer>
-    <p class="cp">copyright © www.HelpingHands.com. All rights reserved</p>
-    <script src="js/script.js"></script>
-</body>
 
+        <form id="donation-form" class="contact-form mt-5" novalidate>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="sr-only" for="name">Your name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your name" autocomplete="name" maxlength="80" required>
+                <div class="invalid-feedback"></div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="phone">Mobile number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Mobile number (e.g. 98450 12345)" autocomplete="tel" inputmode="tel" maxlength="20" required>
+                <div class="invalid-feedback"></div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="category">Donation type</label>
+                <select class="form-control" id="category" name="category" required>
+                  <option value="">Choose donation type</option>
+                  <option value="clothes">Clothes</option>
+                  <option value="footwear">Footwear</option>
+                  <option value="funds">Funds</option>
+                  <option value="gadgets">Electronic gadgets</option>
+                  <option value="stationery">Books and stationery</option>
+                  <option value="food">Food</option>
+                </select>
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="sr-only" for="address">Pickup address</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Pickup address" autocomplete="street-address" maxlength="300" required>
+                <div class="invalid-feedback"></div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="notes">What are you donating?</label>
+                <textarea class="form-control" id="notes" name="notes" rows="3" maxlength="500" placeholder="What are you donating? (optional)"></textarea>
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-status alert" role="status" aria-live="polite" hidden></div>
+          <button type="submit" class="btn1 mt-3">Submit details</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="col-one">
+            <h4>GiveTrack</h4>
+            <p>Doorstep donation pickup with a tracking code for every gift.</p>
+            <p>Built by Raja Mohamad.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="col-two">
+            <h4>Important Links</h4>
+            <ul>
+              <li><a href="#donation">Donations</a></li>
+              <li><a href="#mission">Missions</a></li>
+              <li><a href="#donate">Schedule a pickup</a></li>
+              <li><a href="/track">Track a donation</a></li>
+              <li><a href="/admin">Admin dashboard</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="col-one">
+            <h4>Find Me Online</h4>
+            <div class="social">
+              <a href="https://github.com/Raja9964" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/raja-mohamad-711161262" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <p class="cp">&copy; 2026 GiveTrack. All rights reserved.</p>
+</body>
 </html>
