@@ -63,12 +63,12 @@ function setUpDonationForm() {
 
     try {
       const values = Object.fromEntries(new FormData(form));
-      const { code, firstName } = await api('/api/donations', { method: 'POST', body: values });
+      const { code, firstName } = await api('api/donations', { method: 'POST', body: values });
 
       form.reset();
       showStatus(status, 'success', `Thank you, ${firstName}! Your donation code is ${code}. Taking you to your confirmation...`);
       setTimeout(() => {
-        window.location.assign(`/thank-you?code=${encodeURIComponent(code)}`);
+        window.location.assign(`thank-you?code=${encodeURIComponent(code)}`);
       }, REDIRECT_DELAY_MS);
     } catch (err) {
       submit.disabled = false;

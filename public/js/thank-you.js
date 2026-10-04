@@ -6,7 +6,7 @@ const code = new URLSearchParams(window.location.search).get('code')?.toUpperCas
 if (code && CODE_PATTERN.test(code)) {
   document.getElementById('donation-code').textContent = code;
   document.getElementById('code-box').hidden = false;
-  document.getElementById('track-link').href = `/track?code=${encodeURIComponent(code)}`;
+  document.getElementById('track-link').href = `track?code=${encodeURIComponent(code)}`;
 
   const copyButton = document.getElementById('copy-code');
   copyButton.addEventListener('click', async () => {
@@ -18,7 +18,7 @@ if (code && CODE_PATTERN.test(code)) {
     }
   });
 
-  api(`/api/donations/${encodeURIComponent(code)}`)
+  api(`api/donations/${encodeURIComponent(code)}`)
     .then((donation) => {
       document.getElementById('greeting').textContent =
         `Thank you, ${donation.firstName}! Your ${donation.categoryLabel.toLowerCase()} donation has been registered.`;

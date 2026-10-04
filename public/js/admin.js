@@ -23,7 +23,7 @@ let refreshTimer;
 init();
 
 async function init() {
-  const { authenticated } = await api('/api/admin/session');
+  const { authenticated } = await api('api/admin/session');
   if (authenticated) showDashboard();
   else showLogin();
 
@@ -60,7 +60,7 @@ async function login(event) {
   event.preventDefault();
   $('login-error').textContent = '';
   try {
-    await api('/api/admin/login', { method: 'POST', body: { password: $('password').value } });
+    await api('api/admin/login', { method: 'POST', body: { password: $('password').value } });
     $('login-form').reset();
     showDashboard();
   } catch (err) {
@@ -69,7 +69,7 @@ async function login(event) {
 }
 
 async function logout() {
-  await api('/api/admin/logout', { method: 'POST' });
+  await api('api/admin/logout', { method: 'POST' });
   showLogin();
 }
 
@@ -80,8 +80,8 @@ async function refresh() {
       if (value.trim()) params.set(key, value.trim());
     }
     const [list, stats] = await Promise.all([
-      api(`/api/admin/donations?${params}`),
-      api('/api/admin/stats'),
+      api(`api/admin/donations?${params}`),
+      api('api/admin/stats'),
     ]);
     state.pages = list.pages;
     renderStats(stats);
@@ -102,7 +102,7 @@ function connectLiveFeed() {
   liveFeed?.close();
   const status = $('live-status');
   status.hidden = false;
-  liveFeed = new EventSource('/api/admin/events');
+  liveFeed = new EventSource('api/admin/events');
 
   liveFeed.addEventListener('open', () => {
     status.textContent = 'Live';
@@ -125,7 +125,7 @@ async function advance(event) {
   if (!button) return;
   button.disabled = true;
   try {
-    await api(`/api/admin/donations/${button.dataset.code}/status`, {
+    await api(`api/admin/donations/${button.dataset.code}/status`, {
       method: 'PATCH',
       body: { status: button.dataset.next },
     });

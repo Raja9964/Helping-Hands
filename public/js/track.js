@@ -22,7 +22,7 @@ async function track(code) {
   history.replaceState(null, '', url);
 
   try {
-    renderDonation(await api(`/api/donations/${encodeURIComponent(code)}`));
+    renderDonation(await api(`api/donations/${encodeURIComponent(code)}`));
   } catch (err) {
     renderError(err.message);
   }
