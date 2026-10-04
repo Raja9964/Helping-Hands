@@ -4,7 +4,7 @@ const path = require('path');
 const port = 3019;
 
 const app = express();
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'deny' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to MongoDB
@@ -30,7 +30,7 @@ const Users = mongoose.model('donordetails', userSchema);
 
 // Route to serve the main page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Route to handle form submission
