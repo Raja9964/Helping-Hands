@@ -4,6 +4,8 @@ Doorstep donation pickup with a tracking code for every gift, and a live dashboa
 
 [![CI](https://github.com/Raja9964/Helping-Hands/actions/workflows/ci.yml/badge.svg)](https://github.com/Raja9964/Helping-Hands/actions/workflows/ci.yml)
 
+**[▶ Live demo](https://raja9964.github.io/Helping-Hands/)**: runs in your browser with sample data; the full app uses Node.js + MongoDB.
+
 | Landing page | Thank-you page with code |
 | --- | --- |
 | ![Landing page](docs/screenshots/landing.png) | ![Thank-you page](docs/screenshots/thank-you.png) |
@@ -83,19 +85,21 @@ Routes stay thin: they validate input with Zod, call a service in `src/services`
 │   ├── routes/             public, admin and live-event routes
 │   ├── middleware/         validation, rate limiting, admin session, errors
 │   └── lib/                donation codes, event hub, HttpError
+├── demo/                   in-browser API and banner for the GitHub Pages demo
 ├── scripts/
 │   ├── dev-memory.js       run with an in-memory MongoDB and demo data
 │   ├── demo-data.js        seed donations
+│   ├── build-pages.js      build the static demo into dist/
 │   └── optimize-images.js  resize and compress images with sharp
 ├── test/                   Vitest + Supertest suites
-└── .github/workflows/ci.yml
+└── .github/workflows/      ci.yml (lint and tests), pages.yml (demo deploy)
 ```
 
-## Getting started
+## Run it locally
 
 Requires Node.js 22.9 or newer.
 
-### Quick demo (no MongoDB needed)
+### Quick start (no MongoDB needed)
 
 ```bash
 git clone https://github.com/Raja9964/Helping-Hands.git
@@ -104,11 +108,7 @@ npm install
 npm run dev:memory
 ```
 
-Then open:
-
-- http://localhost:3000 for the site
-- http://localhost:3000/track?code=HH-7K3P9Q for a seeded donation
-- http://localhost:3000/admin with the password `helpinghands-demo`
+The site starts on port 3000 with an in-memory MongoDB and seeded demo data. Open it in your browser, track the seeded donation `HH-7K3P9Q` from the Track page, and sign in to the admin dashboard at `/admin` with the password `helpinghands-demo`.
 
 The in-memory database is wiped when the process stops. Set `PORT` to use another port.
 
@@ -125,7 +125,7 @@ The server connects to MongoDB first (retrying a few times) and only starts list
 
 | Variable | Required | Default | Description |
 | --- | --- | --- | --- |
-| `MONGODB_URI` | no | `mongodb://127.0.0.1:27017/helpinghands` | MongoDB connection string |
+| `MONGODB_URI` | no | local MongoDB on port 27017, database `helpinghands` | MongoDB connection string |
 | `PORT` | no | `3000` | HTTP port |
 | `ADMIN_PASSWORD` | yes | none | Password for `/admin`, at least 8 characters |
 | `SESSION_SECRET` | yes | none | Key for signing the admin cookie, at least 32 characters |
